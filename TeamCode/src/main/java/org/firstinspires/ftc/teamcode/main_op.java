@@ -56,7 +56,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 public class main_op extends OpMode{
 
     /* Declare OpMode members. */
-    HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
+    Hardware_mainop robot       = new Hardware_mainop(); // use the class created to define a Pushbot's hardware
     double          clawOffset  = 0.0 ;                  // Servo mid position
     final double    CLAW_SPEED  = 0.02 ;                 // sets rate to move servo
 
@@ -116,14 +116,14 @@ public class main_op extends OpMode{
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
         if (gamepad1.y)
-            robot.leftArm.setPower(robot.ARM_UP_POWER);
+            robot.Elevator.setPower(robot.ELEVATOR_UP);
         else if (gamepad1.a)
-            robot.leftArm.setPower(robot.ARM_DOWN_POWER);
+            robot.Elevator.setPower(robot.ELEVATOR_DOWN);
         else
-            robot.leftArm.setPower(0.0);
+            robot.Elevator.setPower(0.0);
 
         // Send telemetry message to signify robot running;
-        telemetry.addData("claw",  "Offset = %.2f", clawOffset);
+        telemetry.addData("Servo 1",  "Offset = %.2f", clawOffset);
         telemetry.addData("left",  "%.2f", left);
         telemetry.addData("right", "%.2f", right);
     }
