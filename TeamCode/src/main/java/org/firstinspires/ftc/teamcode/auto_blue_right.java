@@ -57,12 +57,12 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Pushbot: Auto Drive By Time", group="Pushbot")
-@Disabled
+@Autonomous(name="blue right", group="Pushbot")
+//@Disabled
 public class auto_blue_right extends LinearOpMode {
 
     /* Declare OpMode members. */
-    HardwarePushbot         robot   = new HardwarePushbot();   // Use a Pushbot's hardware
+    Hardware_mainop robot       = new Hardware_mainop();  // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
 
 
@@ -86,8 +86,15 @@ public class auto_blue_right extends LinearOpMode {
         waitForStart();
 
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
+        robot.Elevator.setPower(-100);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+            telemetry.addData("Path", "Status: Elevator Lowering %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
         // Step 1:  Drive forward for 3 seconds
+        robot.Elevator.setPower(0);
         robot.leftDrive.setPower(FORWARD_SPEED);
         robot.rightDrive.setPower(FORWARD_SPEED);
         runtime.reset();
@@ -117,7 +124,7 @@ public class auto_blue_right extends LinearOpMode {
         // Step 4:  Stop and close the claw.
         robot.leftDrive.setPower(0);
         robot.rightDrive.setPower(0);
-        robot.leftClaw.setPosition(1.0);
+        robot.S_ARM.setPosition(1.0);
         robot.rightClaw.setPosition(0.0);
 
         telemetry.addData("Path", "Complete");
