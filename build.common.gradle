@@ -84,9 +84,10 @@ android {
             debuggable true
             jniDebuggable true
             renderscriptDebuggable true
-            ndk {
+            //removed to allow instalation on new phones
+            /*ndk {
                 abiFilters "armeabi-v7a"
-            }
+            } */
         }
     }
 
