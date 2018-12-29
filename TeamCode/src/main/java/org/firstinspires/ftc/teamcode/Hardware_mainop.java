@@ -99,8 +99,8 @@ public class Hardware_mainop
         Elevator.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         Aux.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         // Define and initialize ALL installed servos.
-        S_ARM  = hwMap.get(Servo.class, "left_hand");
-        rightClaw = hwMap.get(Servo.class, "right_hand");
+        S_ARM  = hwMap.get(Servo.class, "arm");
+        rightClaw = hwMap.get(Servo.class, "rightClaw");
         S_ARM.setPosition(MID_SERVO);
         rightClaw.setPosition(MID_SERVO);
     }
