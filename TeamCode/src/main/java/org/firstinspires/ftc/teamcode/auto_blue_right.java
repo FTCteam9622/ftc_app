@@ -113,8 +113,8 @@ public class auto_blue_right extends LinearOpMode {
         }
 
         // Step 3:  Drive Backwards for 1 Second
-        robot.leftDrive.setPower(-FORWARD_SPEED);
-        robot.rightDrive.setPower(-FORWARD_SPEED);
+        robot.leftDrive.setPower(FORWARD_SPEED);
+        robot.rightDrive.setPower(FORWARD_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.0)) {
             telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());

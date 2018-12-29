@@ -86,8 +86,14 @@ public class auto_red_left extends LinearOpMode {
         waitForStart();
 
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
-
+        robot.Elevator.setPower(-100);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+            telemetry.addData("Path", "Status: Elevator Lowering %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
         // Step 1:  Drive forward for 3 seconds
+       robot.Elevator.setPower(0);
         robot.leftDrive.setPower(FORWARD_SPEED);
         robot.rightDrive.setPower(FORWARD_SPEED);
         runtime.reset();
@@ -106,8 +112,8 @@ public class auto_red_left extends LinearOpMode {
         }
 
         // Step 3:  Drive Backwards for 1 Second
-        robot.leftDrive.setPower(-FORWARD_SPEED);
-        robot.rightDrive.setPower(-FORWARD_SPEED);
+        robot.leftDrive.setPower(FORWARD_SPEED);
+        robot.rightDrive.setPower(FORWARD_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.0)) {
             telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
