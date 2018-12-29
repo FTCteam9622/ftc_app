@@ -57,7 +57,7 @@ public class Hardware_mainop
     public DcMotor  rightDrive  = null;
     public DcMotor  Aux         = null;
     public DcMotor  Elevator    = null;
-    public Servo    leftClaw    = null;
+    public Servo    S_ARM    = null;
     public Servo    rightClaw   = null;
 
     public static final double MID_SERVO       =  0.5 ;
@@ -99,9 +99,9 @@ public class Hardware_mainop
         Elevator.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         Aux.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         // Define and initialize ALL installed servos.
-        leftClaw  = hwMap.get(Servo.class, "left_hand");
+        S_ARM  = hwMap.get(Servo.class, "left_hand");
         rightClaw = hwMap.get(Servo.class, "right_hand");
-        leftClaw.setPosition(MID_SERVO);
+        S_ARM.setPosition(MID_SERVO);
         rightClaw.setPosition(MID_SERVO);
     }
  }
