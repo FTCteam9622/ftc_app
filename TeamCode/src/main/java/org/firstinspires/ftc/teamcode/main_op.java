@@ -122,10 +122,18 @@ public class main_op extends OpMode{
         else
             robot.Elevator.setPower(0.0);
 
+        if (gamepad1.dpad_up)
+            robot.Aux.setPower(100);
+        else if (gamepad1.dpad_down)
+            robot.Aux.setPower(-100);
+        else
+            robot.Aux.setPower(0.0);
+
         // Send telemetry message to signify robot running;
         telemetry.addData("Servo 1",  "Offset = %.2f", clawOffset);
         telemetry.addData("left",  "%.2f", left);
         telemetry.addData("right", "%.2f", right);
+        telemetry.addData("right", "Elevator");
     }
 
     /*
